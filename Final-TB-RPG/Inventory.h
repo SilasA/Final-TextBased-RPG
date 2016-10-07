@@ -7,7 +7,7 @@
 #include <vector>
 #include <string>
 
-//
+// Inventory of the (a) player
 class Inventory : SubSystem
 {
 private:
@@ -19,6 +19,8 @@ private:
 
 public:
 	Inventory(const std::string& id, int capacity);
+
+	virtual void Update() override;
 
 	bool Add(std::vector<Item>& container, std::vector<Item>::iterator& item);
 };
