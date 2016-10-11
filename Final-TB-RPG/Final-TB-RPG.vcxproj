@@ -145,21 +145,27 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BattleState.cpp" />
     <ClCompile Include="Final-TB-RPG.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Questions.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleState.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="MenuState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="Questions.h" />
     <ClInclude Include="SubSystem.h" />
     <ClInclude Include="Utilities\Logger.h" />

@@ -6,7 +6,8 @@
 
 #include <string>
 
-//
+// Base class for all game states
+// Game states control all game functionality
 class GameState : public SubSystem
 {
 private:
@@ -21,7 +22,6 @@ public:
 
 	inline Game* Peek() { return game; }
 
-	virtual void Input() = 0;
 	virtual void Update() = 0;
 };
 
