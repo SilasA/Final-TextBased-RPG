@@ -30,7 +30,7 @@ bool Logger::AddLogger(std::string&& id, std::string&& filename)
 	if (m_fsout.find(id) != m_fsout.end()) return true;
 	m_fsout[id] = std::ofstream(filename);
 	if (m_fsout[id].is_open())			// Opening log with full time stamp
-		m_fsout[id] << time.getDateTime() <<
+		m_fsout[id] << time.GetDateTime() <<
 		"LOG: Log file opened with ID: "<< id << std::endl <<
 		LOG_DIV << std::endl;
 	return m_fsout[id].is_open();
@@ -80,7 +80,7 @@ bool Logger::WriteLog(std::string sender, std::string content, std::string id)
 	// FORMAT:
 	// [HH:MM:SS][*sender*] CONTENT
 	std::string log = 
-		time.getTime() +
+		time.GetTime() +
 		"[" + sender + "] " +
 		content;
 	if (id == "")
@@ -88,7 +88,7 @@ bool Logger::WriteLog(std::string sender, std::string content, std::string id)
 	else
 	{
 		if (!m_fsout[id].is_open()) return false;
-		m_fsout[id] << str << std::endl;
+		m_fsout[id] << log << std::endl;
 	}
 	return true;
 }

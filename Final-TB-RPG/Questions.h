@@ -8,14 +8,20 @@
 #include <string>
 
 //
+class Question
+{
+
+};
+
+//
 class Questions : public SubSystem
 {
 private:
-	std::map<std::string, 
+	std::map<std::string, Question> m_questions;
 
 
 public:
-	Questions(std::string& id);
+	Questions(const std::string& id);
 
 	virtual void Update() override;
 };

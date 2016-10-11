@@ -5,6 +5,10 @@ Inventory::Inventory(const std::string & id, int capacity) :
 {
 }
 
+void Inventory::Update()
+{
+}
+
 bool Inventory::Add(std::vector<Item>& container, std::vector<Item>::iterator& item)
 {
 	// Inventory too full

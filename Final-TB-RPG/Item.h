@@ -19,7 +19,9 @@ public:
 
 	}
 
-	virtual void Use(int& health) = 0;
+	virtual void Use(int& health)
+	{
+	}
 
 	virtual void Buy(float& monis)
 	{

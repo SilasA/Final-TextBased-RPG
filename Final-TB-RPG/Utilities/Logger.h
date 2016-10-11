@@ -25,11 +25,10 @@ enum class LogType {
 // For iteration over the log map
 typedef std::map<std::string, std::ofstream>::iterator FItr_t;
 
-
+// Static class for managing and writing multiple log files
 class Logger
 {
 private:
-
 	// To create timestamps for each log
 	static Time time;
 

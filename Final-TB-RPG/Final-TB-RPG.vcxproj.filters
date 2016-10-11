@@ -25,6 +25,9 @@
     <Filter Include="Source Files\GameStates">
       <UniqueIdentifier>{ee703709-041f-4717-a45e-1c48ca64f212}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{27aa030b-37e6-4073-a67f-cb585dae91ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities\Logger.cpp">
+      <Filter>Header Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Food.h">
       <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Time.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Logger.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -150,6 +150,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Questions.cpp" />
+    <ClCompile Include="Utilities\Logger.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,8 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Questions.h" />
     <ClInclude Include="SubSystem.h" />
+    <ClInclude Include="Utilities\Logger.h" />
+    <ClInclude Include="Utilities\Time.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
