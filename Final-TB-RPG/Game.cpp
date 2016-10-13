@@ -16,6 +16,7 @@ void Game::Pop()
 
 void Game::Push(GameState* gameState)
 {
+	// ERROR Game is unreadable when pushing to stack.
 	m_gameState.push(gameState);
 }
 
