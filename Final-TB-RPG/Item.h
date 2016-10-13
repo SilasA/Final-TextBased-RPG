@@ -28,9 +28,9 @@ public:
 		monis -= m_value;
 	}
 
-	inline std::string GetName() { return m_name; }
-	inline float GetValue() { return m_value; }
-	inline int GetUnitSize() { return m_unitSize; }
+	inline std::string Name() { return m_name; }
+	inline float Value() { return m_value; }
+	inline int UnitSize() { return m_unitSize; }
 };
 
 #endif // ITEM_H

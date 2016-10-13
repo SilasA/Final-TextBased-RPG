@@ -17,7 +17,10 @@ private:
 public:
 	BattleState(Game* game, const std::string& id, Player* first, Player* second);
 
-	virtual void Update() override;
+	virtual int Update() override;
+
+	inline Player* First() { return m_first; }
+	inline Player* Second() { return m_second; }
 };
 
 #endif // BATTLE_STATE_H

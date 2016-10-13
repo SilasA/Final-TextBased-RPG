@@ -4,6 +4,7 @@ Questions::Questions(const std::string& id) : SubSystem(id)
 {
 }
 
-void Questions::Update()
+int Questions::Update()
 {
+	return 0;
 }

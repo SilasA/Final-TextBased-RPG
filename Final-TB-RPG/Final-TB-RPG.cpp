@@ -2,6 +2,7 @@
 //
 
 #include "Utilities\Logger.h"
+#include "Game.h"
 #include <windows.h>
 #include <cstdlib>
 //TODO: 
@@ -12,7 +13,7 @@ int main(int argc, char* argv[])
 {
 	Logger::AddLogger("log", "./Log/log.txt");
 	Logger::WriteLog("Main", "Program started");
-
-    return 0;
+	Game game("Game");
+    return game.Update();
 }
 

@@ -17,9 +17,9 @@ MenuState::Option MenuState::interaction()
 	return Option();
 }
 
-void MenuState::Update()
+int MenuState::Update()
 {
 
 
-	
+	return 0;
 }

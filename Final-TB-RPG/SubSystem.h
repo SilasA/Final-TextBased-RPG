@@ -17,7 +17,7 @@ protected:
 	}
 
 public:
-	virtual void Update() = 0;
+	virtual int Update() = 0;
 
 	inline std::string ID() { return m_id; }
 };

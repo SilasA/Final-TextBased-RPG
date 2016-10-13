@@ -14,7 +14,7 @@ private:
 public:
 	PlayState(Game* game, const std::string& id);
 
-	virtual void Update() override;
+	virtual int Update() override;
 };
 
 #endif // PLAY_STATE_H

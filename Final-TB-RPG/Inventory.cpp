@@ -1,17 +1,35 @@
 #include "Inventory.h"
 
-Inventory::Inventory(int capacity)
+
+Inventory::Inventory(int capacity) :
+	m_capacity(capacity), m_currentSize(0)
 {
+}
+
+Inventory::Inventory(std::vector<Item>& inventory) :
+	m_inventory(inventory)
+{
+	calc_current_size();
+	m_capacity = m_currentSize;
+}
+
+void Inventory::calc_current_size()
+{
+	m_currentSize = 0;
+	for (Item& item : m_inventory)
+		m_currentSize += item.UnitSize();
 }
 
 bool Inventory::Add(std::vector<Item>& container, std::vector<Item>::iterator& item)
 {
-	// Inventory too full
-	if (m_capacity < m_inventory.size() + item->GetUnitSize() - 1) return false;
-	if (container.size() > 0) return false;
+	// Inventory full
+	if (m_capacity < m_currentSize + item->UnitSize()) return false;
+	if (container.size() < 0) return false;
 
 	m_inventory.push_back(*item);
 	container.erase(item);
+
+	calc_current_size();
 	return true;
 }
 

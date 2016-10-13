@@ -5,6 +5,7 @@ BattleState::BattleState(Game* game, const std::string& id, Player* first, Playe
 {
 }
 
-void BattleState::Update()
+int BattleState::Update()
 {
+	return 0;
 }

@@ -17,7 +17,7 @@ private:
 public:
 	MenuState(Game* game, const std::string& id);
 
-	virtual void Update() override;
+	virtual int Update() override;
 };
 
 #endif // MENU_STATE_H

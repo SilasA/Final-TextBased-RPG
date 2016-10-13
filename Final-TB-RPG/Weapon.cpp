@@ -10,5 +10,6 @@ Weapon::Weapon(const std::string& name, float value, int size, int upperDamageRa
 
 void Weapon::Use(int& health)
 {
-	health -= rand() % m_upperDamageRange + m_lowerDamageRange;
+	int damage = rand() % m_upperDamageRange + m_lowerDamageRange;
+	health -= rand() % 1 + 100 <= m_critProb * 100 ? damage : damage * 2;
 }

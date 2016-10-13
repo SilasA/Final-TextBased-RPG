@@ -23,7 +23,7 @@ private:
 public:
 	Questions(const std::string& id);
 
-	virtual void Update() override;
+	virtual int Update() override;
 };
 
 

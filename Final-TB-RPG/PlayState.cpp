@@ -5,6 +5,7 @@ PlayState::PlayState(Game* game, const std::string& id) :
 {
 }
 
-void PlayState::Update()
+int PlayState::Update()
 {
+	return 0;
 }

@@ -22,7 +22,7 @@ public:
 
 	inline Game* Peek() { return m_game; }
 
-	virtual void Update() = 0;
+	virtual int Update() = 0;
 };
 
 #endif // GAME_STATE_H
