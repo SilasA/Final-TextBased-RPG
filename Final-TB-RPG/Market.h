@@ -6,7 +6,7 @@
 
 #include <string>
 
-class Market : SubSystem
+class Market : public SubSystem
 {
 private:
 	Inventory m_items;

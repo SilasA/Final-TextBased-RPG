@@ -10,7 +10,7 @@
 // Game states control all game functionality
 class GameState : public SubSystem
 {
-private:
+protected:
 
 	Game* m_game;
 

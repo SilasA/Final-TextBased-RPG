@@ -17,7 +17,7 @@ private:
 public:
 	Game(const std::string& id);
 
-	inline void Pop() { m_gameState.pop(); }
+	void Pop();
 	inline GameState* Peek() { return m_gameState.top(); }
 	void Push(GameState* gameState);
 

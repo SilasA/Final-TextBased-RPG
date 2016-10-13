@@ -154,7 +154,7 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
-    <ClCompile Include="Questions.cpp" />
+    <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
@@ -169,7 +169,7 @@
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
-    <ClInclude Include="Questions.h" />
+    <ClInclude Include="SplashState.h" />
     <ClInclude Include="SubSystem.h" />
     <ClInclude Include="Utilities\Logger.h" />
     <ClInclude Include="Utilities\Time.h" />

@@ -5,6 +5,8 @@
 
 #include <string>
 
+#define CRIT_X 2
+
 // Represents a weapon
 class Weapon : public Item
 {
@@ -18,6 +20,5 @@ public:
 
 	virtual void Use(int& health) override;
 };
-
 
 #endif // WEAPON_H

@@ -7,12 +7,12 @@
 // 
 class MenuState : public GameState
 {
-	typedef void(MenuState::*Function)(void);
+	typedef void(*Function)(Game*);
 	typedef std::map<std::string, Function>::iterator Option;
 private:
 	std::map<std::string, Function> m_options;
 
-	Option interaction();
+	std::string interaction();
 
 public:
 	MenuState(Game* game, const std::string& id);
