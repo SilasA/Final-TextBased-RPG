@@ -7,8 +7,8 @@
 #include <vector>
 #include <string>
 
-// Inventory of the (a) player
-class Inventory : SubSystem
+// Inventory of a player
+class Inventory
 {
 private:
 	std::vector<Item> m_inventory;
@@ -18,11 +18,11 @@ private:
 	inline int space_available() { return m_inventory.size() - m_capacity - 1; }
 
 public:
-	Inventory(const std::string& id, int capacity);
-
-	virtual void Update() override;
+	Inventory(int capacity);
 
 	bool Add(std::vector<Item>& container, std::vector<Item>::iterator& item);
+
+	bool ChangeCapacity(int capacity);
 };
 
 #endif // INVENTORY_H

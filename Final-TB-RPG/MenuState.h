@@ -15,7 +15,7 @@ private:
 	Option interaction();
 
 public:
-	MenuState(const std::string& id);
+	MenuState(Game* game, const std::string& id);
 
 	virtual void Update() override;
 };

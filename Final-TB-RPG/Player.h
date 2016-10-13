@@ -4,7 +4,9 @@
 #include "SubSystem.h"
 #include "Inventory.h"
 
-// Represents the end-user
+#include <string>
+
+// Represents a player (npc or user)
 class Player : public SubSystem
 {
 private:

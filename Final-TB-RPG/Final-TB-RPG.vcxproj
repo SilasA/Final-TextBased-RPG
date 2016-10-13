@@ -151,6 +151,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Questions.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />

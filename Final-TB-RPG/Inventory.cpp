@@ -1,11 +1,6 @@
 #include "Inventory.h"
 
-Inventory::Inventory(const std::string & id, int capacity) : 
-	SubSystem(id), m_capacity(capacity)
-{
-}
-
-void Inventory::Update()
+Inventory::Inventory(int capacity)
 {
 }
 
@@ -17,5 +12,12 @@ bool Inventory::Add(std::vector<Item>& container, std::vector<Item>::iterator& i
 
 	m_inventory.push_back(*item);
 	container.erase(item);
+	return true;
+}
+
+bool Inventory::ChangeCapacity(int capacity)
+{
+	if (m_inventory.size() > capacity) return false;
+	m_capacity = capacity;
 	return true;
 }

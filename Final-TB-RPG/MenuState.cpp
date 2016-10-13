@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-MenuState::MenuState(const std::string& id) :
-	GameState(id)
+MenuState::MenuState(Game* game, const std::string& id) :
+	GameState(game, id)
 {
 }
 

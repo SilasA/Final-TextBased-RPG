@@ -12,15 +12,15 @@ class GameState : public SubSystem
 {
 private:
 
-	Game* game;
+	Game* m_game;
 
 public:
-	GameState(const std::string& id) : 
+	GameState(Game* game, const std::string& id) : 
 		SubSystem(id)
 	{
 	}
 
-	inline Game* Peek() { return game; }
+	inline Game* Peek() { return m_game; }
 
 	virtual void Update() = 0;
 };

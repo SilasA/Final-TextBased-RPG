@@ -3,17 +3,19 @@
 
 #include "Utilities\Logger.h"
 #include "GameState.h"
+#include "Player.h"
 
 #include <string>
 
-//
+// Controls battle functionality
 class BattleState : public GameState
 {
 private:
-
+	Player* m_first;
+	Player* m_second;
 
 public:
-	BattleState(const std::string& id);
+	BattleState(Game* game, const std::string& id, Player* first, Player* second);
 
 	virtual void Update() override;
 };

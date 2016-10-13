@@ -1,7 +1,7 @@
 #include "BattleState.h"
 
-BattleState::BattleState(const std::string& id) :
-	GameState(id)
+BattleState::BattleState(Game* game, const std::string& id, Player* first, Player* second) :
+	GameState(game, id), m_first(first), m_second(second)
 {
 }
 

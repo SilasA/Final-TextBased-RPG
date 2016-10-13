@@ -12,7 +12,7 @@ private:
 	Questions m_questions;
 
 public:
-	PlayState(const std::string& id);
+	PlayState(Game* game, const std::string& id);
 
 	virtual void Update() override;
 };
