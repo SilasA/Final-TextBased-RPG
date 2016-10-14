@@ -7,9 +7,7 @@
 SplashState::SplashState(Game* game, const std::string& id) :
 	GameState(game, id)
 {
-	if (game == nullptr)
-		std::cout << "FUCK";
-	m_message = "===========================================\nCreated By:\nSilas Agnew\n===========================================";
+	m_message = "===========================================\n>Created By:\n>Silas Agnew\n===========================================";
 }
 
 int SplashState::Update()

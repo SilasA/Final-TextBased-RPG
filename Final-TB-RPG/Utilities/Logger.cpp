@@ -13,6 +13,12 @@ void Logger::writetoall(std::string& log)
 	}
 }
 
+bool Logger::exists(std::string& log)
+{
+	std::ifstream f(log);
+	return f.good();
+}
+
 
 Logger::Logger()
 {
@@ -28,10 +34,12 @@ Logger::~Logger()
 bool Logger::AddLogger(std::string&& id, std::string&& filename)
 {
 	if (m_fsout.find(id) != m_fsout.end()) return true;
-	m_fsout[id] = std::ofstream(filename);
+
+	filename += time.GetSafeDateTime();
+	m_fsout[id] = std::ofstream(filename + ".txt");
 	if (m_fsout[id].is_open())			// Opening log with full time stamp
 		m_fsout[id] << time.GetDateTime() <<
-		"LOG: Log file opened with ID: "<< id << std::endl <<
+		"LOG: Log file opened with ID: \""<< id << "\"" << std::endl <<
 		LOG_DIV << std::endl;
 	return m_fsout[id].is_open();
 }

@@ -13,6 +13,7 @@ class Player : public SubSystem
 private:
 	std::string m_name;
 	double m_monis;
+	int m_health;
 
 	Inventory m_inventory;
 
@@ -21,6 +22,10 @@ public:
 
 	inline std::string Name() { return m_name; }
 	inline double Monis() { return m_monis; }
+	inline int& Health() { return m_health; }
+	inline bool IsDead() { return m_health <= 0; }
+	inline std::vector<Item*> GetWeapons() { return m_inventory.GetWeapons(); }
+	inline std::vector<Item*> GetFoods() { return m_inventory.GetFoods(); }
 
 	bool AddItem(std::vector<Item>& container, std::vector<Item>::iterator& item);
 	bool ChangeItemCapacity(int capacity);

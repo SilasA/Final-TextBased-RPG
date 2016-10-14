@@ -28,6 +28,21 @@ public:
 			std::to_string(now.tm_sec) + "]";
 	}
 
+	// Returns the date + time in MM-DD-YYYY HH-MM-SS format
+	// Safe for filenames
+	std::string GetSafeDateTime()
+	{
+		t = time(NULL);
+		localtime_s(&now, &t);
+		return "[" +
+			std::to_string(now.tm_mon + 1) + "-" +
+			std::to_string(now.tm_mday) + "-" +
+			std::to_string(now.tm_year + 1900) + " " +
+			std::to_string(now.tm_hour) + "-" +
+			std::to_string(now.tm_min) + "-" +
+			std::to_string(now.tm_sec) + "]";
+	}
+
 	// Returns the date in MM/DD/YYYY format
 	std::string GetDate()
 	{

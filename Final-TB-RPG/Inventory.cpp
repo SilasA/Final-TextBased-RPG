@@ -39,3 +39,17 @@ bool Inventory::ChangeCapacity(int capacity)
 	m_capacity = capacity;
 	return true;
 }
+
+std::vector<Item*> Inventory::GetWeapons()
+{
+	std::vector<Item*> weaps;
+	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
+		if (it->IsWeapon())
+			weaps.push_back(&(*it)); // Not reduntant
+	return weaps;
+}
+
+std::vector<Item*> Inventory::GetFoods()
+{
+	return std::vector<Item*>();
+}

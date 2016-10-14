@@ -38,6 +38,8 @@ private:
 	// Writes an already formatted string to all open log files
 	static void writetoall(std::string& log);
 
+	static bool exists(std::string& log);
+
 public:
 
 	Logger();
@@ -45,8 +47,6 @@ public:
 
 	// Adds a log file to the map
 	// Returns if it was a success or not
-	// NOTE: unsuccessful means either the stream couldn't be opened or the
-	// ID already exists.
 	static bool AddLogger(std::string&& id, std::string&& filename);
 
 	// Closes the IDed log file

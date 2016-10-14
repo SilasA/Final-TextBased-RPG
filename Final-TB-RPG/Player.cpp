@@ -17,5 +17,6 @@ bool Player::ChangeItemCapacity(int capacity)
 
 int Player::Update()
 {
+
 	return 0;
 }

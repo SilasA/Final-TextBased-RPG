@@ -14,6 +14,8 @@ private:
 	Player* m_first;
 	Player* m_second;
 
+	void draw_weapon_choice();
+
 public:
 	BattleState(Game* game, const std::string& id, Player* first, Player* second);
 

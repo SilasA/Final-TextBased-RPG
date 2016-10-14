@@ -5,6 +5,7 @@
 
 #include <string>
 
+// Splash screen at the beginning of the game.
 class SplashState : public GameState
 {
 private:

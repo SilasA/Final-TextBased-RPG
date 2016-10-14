@@ -10,6 +10,8 @@
 // Inventory of a player
 class Inventory
 {
+	typedef std::vector<Item>::iterator ItemIt;
+
 private:
 	std::vector<Item> m_inventory;
 	int m_capacity;
@@ -25,8 +27,10 @@ public:
 	Inventory(std::vector<Item>& inventory);
 
 	bool Add(std::vector<Item>& container, std::vector<Item>::iterator& item);
-
 	bool ChangeCapacity(int capacity);
+
+	std::vector<Item*> GetWeapons();
+	std::vector<Item*> GetFoods();
 };
 
 #endif // INVENTORY_H
