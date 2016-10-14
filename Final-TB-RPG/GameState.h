@@ -16,7 +16,7 @@ protected:
 
 public:
 	GameState(Game* game, const std::string& id) : 
-		SubSystem(id)
+		SubSystem(id), m_game(game)
 	{
 	}
 
