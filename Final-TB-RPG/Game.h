@@ -18,8 +18,6 @@ private:
 
 public:
 	// Players
-	Player m_user;
-	std::vector<Player> m_enemies;
 
 	// See SubSystem()
 	Game(const std::string& id);
