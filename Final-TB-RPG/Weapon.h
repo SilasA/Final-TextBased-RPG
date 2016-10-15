@@ -11,13 +11,16 @@
 class Weapon : public Item
 {
 private:
-	int m_upperDamageRange, 
-		m_lowerDamageRange, 
-		m_critProb;
+	int m_upperDamageRange,	// Maximum damage the weapon can do
+		m_lowerDamageRange; // Minimum damage the weapon can do
+	float m_critProb;		// Probability to inflict critical damage
 
 public:
+	// Construct max damage, min damage, and crit probability
+	// See Item()
 	Weapon(const std::string& name, float value, int size, int upperDamageRange, int lowerDamageName, float critProb);
 
+	// Inflicts damage to health based on weapon properties
 	virtual void Use(int& health) override;
 };
 

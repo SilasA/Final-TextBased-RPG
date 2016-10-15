@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <thread>
 
+// Macros for some tasks
 #define CLEAR system("cls")
 #define SLEEP(ms) std::this_thread::sleep_for(std::chrono::milliseconds(ms))
 
@@ -14,8 +15,10 @@
 class SubSystem
 {
 protected:
+	// Subsystem id used to identify it in logs
 	std::string m_id;
 
+	// Constructs id; Log initialization
 	SubSystem(const std::string& id) : 
 		m_id(id)
 	{
@@ -23,8 +26,10 @@ protected:
 	}
 
 public:
+	// Used as the subsystem's main()
 	virtual int Update() = 0;
 
+	// Gets subsystem id
 	inline std::string ID() { return m_id; }
 };
 

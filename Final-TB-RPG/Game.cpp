@@ -24,7 +24,7 @@ int Game::Update()
 	while (true)
 	{
 		if (Peek() == nullptr) break;
-		Peek()->Update();
+		if (Peek()->Update() == -1) Pop();
 	}
 	return 0;
 }

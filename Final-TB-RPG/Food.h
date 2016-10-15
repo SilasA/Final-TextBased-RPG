@@ -9,13 +9,16 @@
 class Food : public Item
 {
 private:
+	// How much health the food adds
 	int m_nutritionValue;
 
 public:
+	// Constructs nutrition value
+	// See Item()
 	Food(const std::string& name, float value, int size, int nutritionValue);
 
+	// Adds nutrition value to health
 	virtual void Use(int& health) override;
 };
-
 
 #endif // FOOD_H

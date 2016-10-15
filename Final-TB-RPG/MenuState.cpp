@@ -19,9 +19,7 @@ std::string MenuState::interaction()
 		std::cout << "Select an option: " << std::endl;
 		for (Option option = m_options.begin(); option != m_options.end(); option++)
 			std::cout << option->first << std::endl;
-
-		if (!std::getline(std::cin, line)) continue;
-		if (m_options.find(line) != m_options.end()) continue;
+		if (std::getline(std::cin, line) || m_options.find(line) != m_options.end()) break;
 	}
 	return line;
 }

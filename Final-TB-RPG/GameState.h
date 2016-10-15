@@ -11,10 +11,12 @@
 class GameState : public SubSystem
 {
 protected:
-
+	// Pointer to the current game
 	Game* m_game;
 
 public:
+	// Constructs pointer to game
+	// See SubSystem()
 	GameState(Game* game, const std::string& id) : 
 		SubSystem(id), m_game(game)
 	{
@@ -23,6 +25,7 @@ public:
 
 	inline Game* Peek() { return m_game; }
 
+	// To be implemented as a main() for each GameState
 	virtual int Update() = 0;
 };
 

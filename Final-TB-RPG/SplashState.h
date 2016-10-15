@@ -12,8 +12,13 @@ private:
 	std::string m_message;
 
 public:
+	// Tracks number of calls to SplashState::Update()
+	static short counter;
+
+	// See GameState()
 	SplashState(Game* game, const std::string& id);
 
+	// See GameState::Update()
 	virtual int Update() override;
 };
 

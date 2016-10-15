@@ -33,6 +33,17 @@ bool Inventory::Add(std::vector<Item>& container, std::vector<Item>::iterator& i
 	return true;
 }
 
+bool Inventory::Remove(std::vector<Item>& container, std::vector<Item>::iterator& item)
+{
+	if (container.size() < 0) return false;
+	
+	m_inventory.erase(item);
+	container.push_back(*item);
+
+	calc_current_size();
+	return true;
+}
+
 bool Inventory::ChangeCapacity(int capacity)
 {
 	if (m_inventory.size() > capacity) return false;
@@ -51,5 +62,16 @@ std::vector<Item*> Inventory::GetWeapons()
 
 std::vector<Item*> Inventory::GetFoods()
 {
-	return std::vector<Item*>();
+	std::vector<Item*> foods;
+	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
+		if (it->IsFood())
+			foods.push_back(&(*it)); // Not reduntant
+	return foods;
+}
+
+Item* Inventory::FindItem(std::string& name)
+{
+	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
+		if (it->Name() == name) return &(*it);
+	return nullptr;
 }
