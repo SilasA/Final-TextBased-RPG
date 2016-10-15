@@ -100,13 +100,13 @@ int BattleState::Update()
 		if (m_second->Health() <= 10 && !enemyFoods.empty())
 		{
 			std::cout << m_second->Name() << " used " << enemyFoods[0]->Name() << "." << std::endl;
-			enemyFoods[0]->Use(m_second->Health);
+			enemyFoods[0]->Use(m_second->Health());
 		}
 		// Attacks
 		else
 		{
 			std::cout << m_second->Name() << " used " << enemyWeaps[0]->Name() << "." << std::endl;
-			enemyWeaps[0]->Use(m_second->Health);
+			enemyWeaps[0]->Use(m_second->Health());
 		}
 		if (m_first->IsDead()) break;
 	}

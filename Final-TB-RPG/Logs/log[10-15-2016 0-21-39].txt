@@ -1,0 +1,8 @@
+[10/15/2016 0:21:39]LOG: Log file opened with ID: "log"
+====================================================================================================
+[0:21:39][Main] Program started
+[0:21:39][Game] Initialized
+[0:21:39][Splash] Initialized
+[0:21:39][Splash] =====Starting Splash state==========================
+[0:21:41][Menu] Initialized
+[0:21:41][Menu] =====Starting Menu state==========================
