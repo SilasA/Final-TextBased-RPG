@@ -22,6 +22,6 @@ int main(int argc, char* argv[])
 	Logger::AddLogger("log", "./Logs/log");
 	Logger::WriteLog("Main", "Program started");
 	Game game("Game");
-    return game.Update();
+    return game.Run();
 }
 

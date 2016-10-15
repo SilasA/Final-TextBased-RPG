@@ -12,7 +12,7 @@ SplashState::SplashState(Game* game, const std::string& id) :
 	m_message = "===========================================\n>Created By:\n>Silas Agnew\n===========================================";
 }
 
-int SplashState::Update()
+int SplashState::Run()
 {
 	counter++;
 

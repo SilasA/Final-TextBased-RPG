@@ -20,8 +20,8 @@ public:
 	// See GameState()
 	MenuState(Game* game, const std::string& id);
 
-	// See GameState::Update()
-	virtual int Update() override;
+	// See GameState::Run()
+	virtual int Run() override;
 };
 
 #endif // MENU_STATE_H

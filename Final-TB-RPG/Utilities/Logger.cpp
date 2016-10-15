@@ -89,8 +89,8 @@ bool Logger::WriteLog(std::string sender, std::string content, std::string id)
 	// [HH:MM:SS][*sender*] CONTENT
 	std::string log = 
 		time.GetTime() +
-		"[" + sender + "] " +
-		content;
+		"[" + sender + "] "
+		+ content;
 	if (id == "")
 		writetoall(log);
 	else

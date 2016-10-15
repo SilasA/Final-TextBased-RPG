@@ -18,8 +18,8 @@ public:
 	// See GameState()
 	SplashState(Game* game, const std::string& id);
 
-	// See GameState::Update()
-	virtual int Update() override;
+	// See GameState::Run()
+	virtual int Run() override;
 };
 
 #endif // SPLASH_STATE_H

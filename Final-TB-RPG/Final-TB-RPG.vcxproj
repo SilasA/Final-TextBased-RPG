@@ -150,7 +150,7 @@
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="Market.cpp" />
+    <ClCompile Include="MarketState.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
@@ -165,7 +165,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Market.h" />
+    <ClInclude Include="MarketState.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />

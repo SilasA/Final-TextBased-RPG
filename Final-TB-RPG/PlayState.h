@@ -12,7 +12,7 @@ private:
 public:
 	PlayState(Game* game, const std::string& id);
 
-	virtual int Update() override;
+	virtual int Run() override;
 };
 
 #endif // PLAY_STATE_H

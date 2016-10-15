@@ -66,10 +66,10 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Market.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SplashState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketState.cpp">
       <Filter>Source Files\GameStates</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,10 +113,10 @@
     <ClInclude Include="BattleState.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="Market.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SplashState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketState.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
   </ItemGroup>

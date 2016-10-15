@@ -7,6 +7,8 @@
 #include <stack>
 #include <string>
 
+#define RESERVE_IDX 9 
+
 class GameState;
 
 // Class for main game functionality
@@ -16,8 +18,13 @@ private:
 	// Current state of the game (m_gameState.top())
 	std::stack<GameState*> m_gameState;
 
+	std::string get_users_name();
+
 public:
 	// Players
+	Player m_user;
+	std::vector<Player> m_enemies;
+	std::vector<Player> m_shopkeepers;
 
 	// See SubSystem()
 	Game(const std::string& id);
@@ -31,8 +38,8 @@ public:
 	// Wrapper for std::stack::push()
 	void Push(GameState* gameState);
 
-	// Manages stack of gamestates and calls the top's Update()
-	virtual int Update() override;
+	// Manages stack of gamestates and calls the top's Run()
+	virtual int Run() override;
 };
 
 #endif // GAME_H

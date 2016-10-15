@@ -20,13 +20,18 @@ public:
 	GameState(Game* game, const std::string& id) : 
 		SubSystem(id), m_game(game)
 	{
-		Logger::WriteLog(m_id, "=====Starting " + m_id + " state==========================", "log");
+		Logger::WriteLog(
+			m_id, 
+			std::string(IDEAL_SENDER_L - m_id.length(), '=')
+			+ "=Starting " + m_id + " State==========================" +
+			std::string(IDEAL_SENDER_L - m_id.length(), '='),
+			"log");
 	}
 
 	inline Game* Peek() { return m_game; }
 
 	// To be implemented as a main() for each GameState
-	virtual int Update() = 0;
+	virtual int Run() = 0;
 };
 
 #endif // GAME_STATE_H

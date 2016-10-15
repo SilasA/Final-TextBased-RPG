@@ -27,7 +27,7 @@ protected:
 
 public:
 	// Used as the subsystem's main()
-	virtual int Update() = 0;
+	virtual int Run() = 0;
 
 	// Gets subsystem id
 	inline std::string ID() { return m_id; }

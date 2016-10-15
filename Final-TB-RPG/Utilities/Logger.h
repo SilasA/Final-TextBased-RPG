@@ -11,8 +11,8 @@
 
 #include "Time.h"
 
-// idk wtf to do with this
 #define LOG_DIV "===================================================================================================="
+#define IDEAL_SENDER_L 6
 
 // Type of log
 enum class LogType {

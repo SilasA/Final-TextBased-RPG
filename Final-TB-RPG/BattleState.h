@@ -32,8 +32,8 @@ public:
 	BattleState(Game* game, const std::string& id, Player* first, Player* second);
 
 	// Loops through the battle turns until one player is dead
-	// See GameState::Update()
-	virtual int Update() override;
+	// See GameState::Run()
+	virtual int Run() override;
 
 	// Returns the respective player pointer
 	inline Player* First() { return m_first; }

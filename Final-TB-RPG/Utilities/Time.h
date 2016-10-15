@@ -3,6 +3,8 @@
 
 #include <ctime>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 // Class for fetching time in different formats
 class Time
@@ -59,10 +61,12 @@ public:
 	{
 		t = time(NULL);
 		localtime_s(&now, &t);
-		return "[" +
-			std::to_string(now.tm_hour) + ":" +
-			std::to_string(now.tm_min) + ":" +
-			std::to_string(now.tm_sec) + "]";
+		std::stringstream ss;
+		ss << "["
+			<< std::setfill('0') << std::setw(2) << now.tm_hour << ":"
+			<< std::setfill('0') << std::setw(2) << now.tm_min << ":"
+			<< std::setfill('0') << std::setw(2) << now.tm_sec << "]";
+		return ss.str();
 	}
 
 	// Returns current system time in seconds

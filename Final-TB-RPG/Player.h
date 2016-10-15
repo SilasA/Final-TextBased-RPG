@@ -3,7 +3,6 @@
 
 #include "SubSystem.h"
 #include "Inventory.h"
-#include "Game.h"
 
 #include <string>
 
@@ -20,7 +19,8 @@ private:
 public:
 	// Constructs name, monis, and health
 	// See SubSystem()
-	Player(const std::string& id, int invCap, std::string& name, double monis, int health);
+	Player(const std::string& id, int invCap, const std::string& name, double monis, int health);
+	Player(const std::string& id, std::vector<Item>& inventory, const std::string& name, double monis, int health);
 
 	// Accessors
 	inline std::string Name() { return m_name; }
@@ -39,7 +39,7 @@ public:
 	bool ChangeItemCapacity(int capacity);
 
 	// Not in use
-	virtual int Update() override;
+	virtual int Run() override;
 };
 
 #endif // PLAYER_H

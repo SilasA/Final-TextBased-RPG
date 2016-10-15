@@ -80,7 +80,7 @@ void BattleState::interaction()
 	}
 }
 
-int BattleState::Update()
+int BattleState::Run()
 {
 	// TODO: Add variable first player
 	CLEAR;
