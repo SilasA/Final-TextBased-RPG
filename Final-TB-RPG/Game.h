@@ -38,6 +38,8 @@ public:
 	// Wrapper for std::stack::push()
 	void Push(GameState* gameState);
 
+	void RemoveEnemy(Player* player);
+
 	// Manages stack of gamestates and calls the top's Run()
 	virtual int Run() override;
 };

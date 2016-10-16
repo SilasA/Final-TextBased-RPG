@@ -6,9 +6,10 @@ Inventory::Inventory(int capacity) :
 {
 }
 
-Inventory::Inventory(std::vector<Item>& inventory) :
-	m_inventory(inventory)
+Inventory::Inventory(std::vector<Weapon>& weapons, std::vector<Food>& foods)
 {
+	m_weapons = weapons;
+	m_foods = foods;
 	calc_current_size();
 	m_capacity = m_currentSize;
 }
@@ -16,62 +17,59 @@ Inventory::Inventory(std::vector<Item>& inventory) :
 void Inventory::calc_current_size()
 {
 	m_currentSize = 0;
-	for (Item& item : m_inventory)
+	for (Item& item : m_weapons)
+		m_currentSize += item.UnitSize();
+	for (Item& item : m_foods)
 		m_currentSize += item.UnitSize();
 }
 
-bool Inventory::Add(std::vector<Item>& container, std::vector<Item>::iterator& item)
+int Inventory::calc_current_size(std::vector<Item>& container)
 {
-	// Inventory full
-	if (m_capacity < m_currentSize + item->UnitSize()) return false;
-	if (container.size() < 0) return false;
-
-	m_inventory.push_back(*item);
-	container.erase(item);
-
-	calc_current_size();
-	return true;
+	int size = 0;
+	for (Item& item : container)
+		size += item.UnitSize();
+	return size;
 }
 
-bool Inventory::Remove(std::vector<Item>& container, std::vector<Item>::iterator& item)
+void Inventory::Add(Weapon* item)
 {
-	if (container.size() < 0) return false;
-	
-	m_inventory.erase(item);
-	container.push_back(*item);
-
+	if (m_currentSize + item->UnitSize() > m_capacity) return;
+	m_weapons.push_back(*item);
 	calc_current_size();
-	return true;
 }
+
+void Inventory::Add(Food* item)
+{
+	if (m_currentSize + item->UnitSize() > m_capacity) return;
+	m_foods.push_back(*item);
+	calc_current_size();
+}
+
+void Inventory::Add(Inventory& inv)
+{
+	m_foods.insert(m_foods.end(), inv.m_foods.begin(), inv.m_foods.end());
+	m_weapons.insert(m_weapons.end(), inv.m_weapons.begin(), inv.m_weapons.end());
+}
+
+void Inventory::Remove(Item* item)
+{
+	if (item->IsFood()) m_foods.erase(std::find(m_foods.begin(), m_foods.end(), *item));
+	else if (item->IsWeapon()) m_weapons.erase(std::find(m_weapons.begin(), m_weapons.end(), *item));
+}
+
 
 bool Inventory::ChangeCapacity(int capacity)
 {
-	if (m_inventory.size() > capacity) return false;
+	if (m_currentSize > capacity) return false;
 	m_capacity = capacity;
 	return true;
 }
 
-std::vector<Item*> Inventory::GetWeapons()
-{
-	std::vector<Item*> weaps;
-	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
-		if (it->IsWeapon())
-			weaps.push_back(&(*it)); // Not reduntant
-	return weaps;
-}
-
-std::vector<Item*> Inventory::GetFoods()
-{
-	std::vector<Item*> foods;
-	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
-		if (it->IsFood())
-			foods.push_back(&(*it)); // Not reduntant
-	return foods;
-}
-
 Item* Inventory::FindItem(std::string& name)
 {
-	for (ItemIt it = m_inventory.begin(); it != m_inventory.end(); it++)
+	for (WIt it = m_weapons.begin(); it != m_weapons.end(); it++)
+		if (it->Name() == name) return &(*it);
+	for (FIt it = m_foods.begin(); it != m_foods.end(); it++)
 		if (it->Name() == name) return &(*it);
 	return nullptr;
 }

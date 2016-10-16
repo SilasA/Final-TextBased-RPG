@@ -14,6 +14,13 @@ SplashState::SplashState(Game* game, const std::string& id) :
 
 int SplashState::Run()
 {
+	Logger::WriteLog(
+		m_id,
+		std::string(IDEAL_SENDER_L - m_id.length(), '=')
+		+ "==" + m_id + " State==================================" +
+		std::string(IDEAL_SENDER_L - m_id.length(), '='),
+		"log");
+
 	counter++;
 
 	CLEAR;

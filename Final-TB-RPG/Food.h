@@ -15,7 +15,7 @@ private:
 public:
 	// Constructs nutrition value
 	// See Item()
-	Food(const std::string& name, float value, int size, int nutritionValue);
+	Food(const std::string& name, int value, int size, int nutritionValue);
 
 	// Adds nutrition value to health
 	virtual void Use(int& health) override;

@@ -20,12 +20,6 @@ public:
 	GameState(Game* game, const std::string& id) : 
 		SubSystem(id), m_game(game)
 	{
-		Logger::WriteLog(
-			m_id, 
-			std::string(IDEAL_SENDER_L - m_id.length(), '=')
-			+ "=Starting " + m_id + " State==========================" +
-			std::string(IDEAL_SENDER_L - m_id.length(), '='),
-			"log");
 	}
 
 	inline Game* Peek() { return m_game; }

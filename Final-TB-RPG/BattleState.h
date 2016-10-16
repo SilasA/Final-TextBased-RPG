@@ -16,6 +16,9 @@ private:
 	Player* m_first;
 	Player* m_second;
 
+	// The item name chosen in the previous turn.
+	std::string m_lastItem;
+
 	// Draws the players weapon choices from inventory
 	// Returns if there are items in the list
 	bool draw_weapon_choice();

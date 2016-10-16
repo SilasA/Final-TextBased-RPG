@@ -18,7 +18,7 @@ private:
 public:
 	// Construct max damage, min damage, and crit probability
 	// See Item()
-	Weapon(const std::string& name, float value, int size, int upperDamageRange, int lowerDamageName, float critProb);
+	Weapon(const std::string& name, int value, int size, int upperDamageRange, int lowerDamageName, float critProb);
 
 	// Inflicts damage to health based on weapon properties
 	virtual void Use(int& health) override;

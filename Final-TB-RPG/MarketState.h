@@ -14,6 +14,8 @@ private:
 	Player* m_keeper;
 	Player* m_visitor;
 
+	void draw_shop_stock();
+
 public:
 	MarketState(Game* game, const std::string& id, Player* keeper, Player* visitor);
 

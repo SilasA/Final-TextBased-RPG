@@ -7,21 +7,19 @@
 
 #include "Utilities\Logger.h"
 #include "Game.h"
-#include <windows.h>
-#include <cstdlib>
-#include <direct.h>
-//TODO: 
-// -
 
+#include <direct.h>
 
 int main(int argc, char* argv[])
 {
 	// Add "gibmonis" as an arguement to give unlimited monis
 
-	mkdir("./Logs");
+	_mkdir("./Logs");
 	Logger::AddLogger("log", "./Logs/log");
 	Logger::WriteLog("Main", "Program started");
 	Game game("Game");
-    return game.Run();
+	game.Run();
+	Logger::WriteLog("Main", "Program terminated");
+    return 0;
 }
 

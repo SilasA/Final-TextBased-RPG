@@ -27,6 +27,13 @@ std::string MenuState::interaction()
 
 int MenuState::Run()
 {
+	Logger::WriteLog(
+		m_id,
+		std::string(IDEAL_SENDER_L - m_id.length(), '=')
+		+ "==" + m_id + " State==================================" +
+		std::string(IDEAL_SENDER_L - m_id.length(), '='),
+		"log");
+
 	m_options[interaction()](Peek());
 
 	return 0;

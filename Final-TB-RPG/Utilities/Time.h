@@ -21,13 +21,15 @@ public:
 	{
 		t = time(NULL);
 		localtime_s(&now, &t);
-		return "[" +
-			std::to_string(now.tm_mon + 1) + "/" +
-			std::to_string(now.tm_mday) + "/" +
-			std::to_string(now.tm_year + 1900) + " " +
-			std::to_string(now.tm_hour) + ":" +
-			std::to_string(now.tm_min) + ":" +
-			std::to_string(now.tm_sec) + "]";
+		std::stringstream ss;
+		ss << "["
+			<< std::setfill('0') << std::setw(2) << now.tm_mon + 1 << "/"
+			<< std::setfill('0') << std::setw(2) << now.tm_mday << "/"
+			<< std::setfill('0') << std::setw(2) << now.tm_year + 1900 << " "
+			<< std::setfill('0') << std::setw(2) << now.tm_hour << ":"
+			<< std::setfill('0') << std::setw(2) << now.tm_min << ":"
+			<< std::setfill('0') << std::setw(2) << now.tm_sec << "]";
+		return ss.str();
 	}
 
 	// Returns the date + time in MM-DD-YYYY HH-MM-SS format
@@ -36,13 +38,15 @@ public:
 	{
 		t = time(NULL);
 		localtime_s(&now, &t);
-		return "[" +
-			std::to_string(now.tm_mon + 1) + "-" +
-			std::to_string(now.tm_mday) + "-" +
-			std::to_string(now.tm_year + 1900) + " " +
-			std::to_string(now.tm_hour) + "-" +
-			std::to_string(now.tm_min) + "-" +
-			std::to_string(now.tm_sec) + "]";
+		std::stringstream ss;
+		ss << "["
+			<< std::setfill('0') << std::setw(2) << now.tm_mon + 1 << "-"
+			<< std::setfill('0') << std::setw(2) << now.tm_mday << "-"
+			<< std::setfill('0') << std::setw(4) << now.tm_year + 1900 << "-"
+			<< std::setfill('0') << std::setw(2) << now.tm_hour << "-"
+			<< std::setfill('0') << std::setw(2) << now.tm_min << "-"
+			<< std::setfill('0') << std::setw(2) << now.tm_sec << "]";
+		return ss.str();
 	}
 
 	// Returns the date in MM/DD/YYYY format
@@ -50,10 +54,12 @@ public:
 	{
 		t = time(NULL);
 		localtime_s(&now, &t);
-		return "[" +
-			std::to_string(now.tm_mon + 1) + "/" +
-			std::to_string(now.tm_mday) + "/" +
-			std::to_string(now.tm_year + 1900) + "]";
+		std::stringstream ss;
+		ss << "["
+			<< std::setfill('0') << std::setw(2) << now.tm_mon + 1 << "/"
+			<< std::setfill('0') << std::setw(2) << now.tm_mday << "/"
+			<< std::setfill('0') << std::setw(4) << now.tm_year + 1900 << "]";
+		return ss.str();
 	}
 
 	// Returns the time in HH:MM:SS format
