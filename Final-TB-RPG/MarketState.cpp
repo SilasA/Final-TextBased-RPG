@@ -78,7 +78,7 @@ int MarketState::Run()
 				m_keeper->Monis() += m_moreStorageCost;
 				m_visitor->ChangeItemCapacity(m_visitor->CurrentInvCap() + 5);
 				m_moreStorageCost = m_visitor->StartInvCap() + ((m_visitor->CurrentInvCap() - m_visitor->StartInvCap()) / 5) * 10;
-				Logger::WriteLog(m_id, m_visitor->Name() + " bought more storage for " + std::to_string(m_moreStorageCost), "log");
+				Logger::WriteLog(m_id, m_visitor->Name() + " bought more storage for " + std::to_string(m_moreStorageCost) + " monis", "log");
 			}
 			else
 			{
