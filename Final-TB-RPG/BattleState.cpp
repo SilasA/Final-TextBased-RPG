@@ -103,13 +103,11 @@ void BattleState::interaction()
 			}
 
 			if (!std::getline(std::cin, line)) continue;
-			if (line == "last")	line = m_lastItem;
 			if (m_first->FindItem(line)) break;
 			CLEAR;
 		}
 		Logger::WriteLog(m_id, m_first->Name() + " used " + m_first->FindItem(line)->Name(), "log");
 		m_first->FindItem(line)->Use(m_first->Health());
-		m_lastItem = line;
 
 		if (m_first->IsDead()) return;
 		std::cout << "You now have " << m_first->Health() << "hp." << std::endl;
