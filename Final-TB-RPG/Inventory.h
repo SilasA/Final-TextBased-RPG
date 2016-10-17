@@ -23,7 +23,7 @@ private:
 	// Checks how many spaces are available in the players inventory
 	inline int space_available() { return m_currentSize - m_capacity - 1; }
 
-	// Updates m_currentSize
+	// Calculates the current size of the inventor for comparison
 	void calc_current_size();
 	int calc_current_size(std::vector<Item>& container);
 
@@ -34,11 +34,12 @@ public:
 	// Assumes capacity is calculated size of inventory
 	Inventory(std::vector<Weapon>& weapons, std::vector<Food>& foods);
 
-	// Add an item
-	void Add(Weapon* item);
-	void Add(Food* item);
-	void Add(Inventory& inv);
+	// Add (an) item(s)
+	bool Add(Weapon* item);
+	bool Add(Food* item);
+	bool Add(Inventory& inv);
 
+	// Removes an item
 	void Remove(Item* item);
 
 	// Changes the capacity of the inventory
@@ -49,11 +50,16 @@ public:
 	inline std::vector<Weapon>& GetWeapons() { return m_weapons; }
 	inline std::vector<Food>& GetFoods() { return m_foods; }
 
+	// Returns the current inventory capacity
+	inline int Capacity() { return m_capacity; }
+	inline int UsedSpace() { return m_currentSize; }
+
 	// Returns the Item with the specified name or nullptr if it does not exist
 	Item* FindItem(std::string& name);
 
-	typedef std::vector<Weapon>::iterator WIt; // Shorthand iterator
-	typedef std::vector<Food>::iterator FIt; // Shorthand iterator
+	// Shorthand iterator
+	typedef std::vector<Weapon>::iterator WIt;
+	typedef std::vector<Food>::iterator FIt;
 };
 
 #endif // INVENTORY_H

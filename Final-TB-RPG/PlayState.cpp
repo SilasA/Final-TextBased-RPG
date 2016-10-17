@@ -8,10 +8,10 @@
 PlayState::PlayState(Game* game, const std::string& id) :
 	GameState(game, id)
 {
-	m_actions["Market"] =	[](Game* m_game, Player* k, Player* v) { m_game->Push(new MarketState(m_game, "Market", k, v)); };
-	m_actions["Battle"] =	[](Game* m_game, Player* k, Player* v) { m_game->Push(new BattleState(m_game, "Battle", k, v)); };
-	m_actions["Stats"] =	[](Game* m_game, Player* k, Player* v) { m_game->Push(new StatState(m_game, "Stats", k)); };
-	m_actions["Exit"] =		[](Game* m_game, Player* k, Player* v) { m_game->Pop(); };
+	m_actions["Market"] =	[](Game* m_game, Player* v, Player* k) { m_game->Push(new MarketState(m_game, "Market", k, v)); };
+	m_actions["Battle"] =	[](Game* m_game, Player* v, Player* k) { m_game->Push(new BattleState(m_game, "Battle", v, k)); };
+	m_actions["Stats"] =	[](Game* m_game, Player* v, Player* k) { m_game->Push(new StatState(m_game, "Stats", v)); };
+	m_actions["Exit"] =		[](Game* m_game, Player* v, Player* k) { m_game->Pop(); };
 }
 
 std::string PlayState::interaction()

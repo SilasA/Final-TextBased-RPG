@@ -5,6 +5,7 @@
 #include "Inventory.h"
 
 #include <string>
+#include <vector>
 
 // Represents a player (npc or user)
 class Player : public SubSystem
@@ -13,6 +14,9 @@ private:
 	std::string m_name;
 	int m_monis;
 	int m_health;
+
+	// Starting capacity of the player
+	int m_invStartCap;
 
 	Inventory m_inventory;
 
@@ -31,15 +35,19 @@ public:
 	inline std::vector<Food>& GetFoods() { return m_inventory.GetFoods(); }
 	inline Inventory& GetInventory() { return m_inventory; }
 	inline Item* FindItem(std::string& name) { return m_inventory.FindItem(name); }
+	inline int StartInvCap() { return m_invStartCap; }
+	inline int CurrentInvUsed() { return m_inventory.UsedSpace(); }
+	inline int CurrentInvCap() { return m_inventory.Capacity(); }
 
-	// Operator
+	// Quick comparison overload
 	inline bool operator==(const Player& player) { return this->m_name == player.m_name; }
 
 	// Add an item
-	void Add(Weapon* item);
-	void Add(Food* item);
-	void Add(Inventory& inv);
+	bool Add(Weapon* item);
+	bool Add(Food* item);
+	bool Add(Inventory& inv);
 
+	// Removes and item from inventory
 	void Remove(Item* item);
 
 	// Wrapper for Inventory::ChangeCapacity() to this specific player

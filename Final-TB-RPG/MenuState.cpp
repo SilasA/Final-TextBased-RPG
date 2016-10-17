@@ -7,8 +7,8 @@ MenuState::MenuState(Game* game, const std::string& id) :
 	GameState(game, id)
 {
 	// Display order is unrelated to insertion order
-	m_options["exit"] = [](Game* game) { game->Pop(); };
-	m_options["play"] = [](Game* game) { game->Push(new PlayState(game, "Play")); };
+	m_options["Exit"] = [](Game* game) { game->Pop(); };
+	m_options["Play"] = [](Game* game) { game->Push(new PlayState(game, "Play")); };
 }
 
 std::string MenuState::interaction()

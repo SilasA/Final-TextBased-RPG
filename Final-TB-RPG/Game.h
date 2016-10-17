@@ -18,6 +18,7 @@ private:
 	// Current state of the game (m_gameState.top())
 	std::stack<GameState*> m_gameState;
 
+	// Prompts the user for their name and returns it
 	std::string get_users_name();
 
 public:
@@ -38,7 +39,11 @@ public:
 	// Wrapper for std::stack::push()
 	void Push(GameState* gameState);
 
+	// Removes the pointed to player from the enemy list
 	void RemoveEnemy(Player* player);
+
+	// Returns if all enemies are dead
+	inline bool AreEnemiesDead() { return m_enemies.empty(); }
 
 	// Manages stack of gamestates and calls the top's Run()
 	virtual int Run() override;

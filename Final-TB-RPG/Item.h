@@ -28,8 +28,10 @@ protected:
 	// Item type
 	Type m_type;
 
+	// String containing formated item stats
 	std::string m_effect;
 
+	// If the food has been used
 	bool m_used = false;
 
 public:
@@ -61,7 +63,7 @@ public:
 	inline std::string Effect() { return m_effect; }
 	inline bool IsUsed() { return m_used; }
 
-	// Operator
+	// Quick comparison operator
 	inline bool operator==(const Item& item) { return this->m_name == item.m_name; }
 };
 

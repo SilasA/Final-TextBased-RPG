@@ -31,24 +31,29 @@ int Inventory::calc_current_size(std::vector<Item>& container)
 	return size;
 }
 
-void Inventory::Add(Weapon* item)
+bool Inventory::Add(Weapon* item)
 {
-	if (m_currentSize + item->UnitSize() > m_capacity) return;
+	if (m_currentSize + item->UnitSize() > m_capacity) return false;
 	m_weapons.push_back(*item);
 	calc_current_size();
+	return true;
 }
 
-void Inventory::Add(Food* item)
+bool Inventory::Add(Food* item)
 {
-	if (m_currentSize + item->UnitSize() > m_capacity) return;
+	if (m_currentSize + item->UnitSize() > m_capacity) return false;
 	m_foods.push_back(*item);
 	calc_current_size();
+	return true;
 }
 
-void Inventory::Add(Inventory& inv)
+bool Inventory::Add(Inventory& inv)
 {
+	if (m_currentSize + inv.m_currentSize > m_capacity) return false;
 	m_foods.insert(m_foods.end(), inv.m_foods.begin(), inv.m_foods.end());
 	m_weapons.insert(m_weapons.end(), inv.m_weapons.begin(), inv.m_weapons.end());
+	calc_current_size();
+	return true;
 }
 
 void Inventory::Remove(Item* item)

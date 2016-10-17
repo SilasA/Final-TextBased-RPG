@@ -1,28 +1,46 @@
 #include "Player.h"
 
 Player::Player(const std::string& id, int invCap, const std::string& name, int monis, int health) :
-	SubSystem(id), m_inventory(invCap), m_name(name), m_monis(monis), m_health(health)
+	SubSystem(id), m_inventory(invCap), m_name(name), m_monis(monis), m_health(health), m_invStartCap(invCap)
 {
 }
 
 Player::Player(const std::string& id, std::vector<Weapon>& weapons, std::vector<Food> foods, const std::string& name, double monis, int health) :
-	SubSystem(id), m_inventory(weapons, foods), m_name(name), m_monis(monis), m_health(health)
+	SubSystem(id), m_inventory(weapons, foods), m_name(name), m_monis(monis), m_health(health), m_invStartCap(35)
 {
 }
 
-void Player::Add(Weapon* item)
+bool Player::Add(Weapon* item)
 {
-	m_inventory.Add(item);
+	if (m_inventory.Add(item)) return true;
+	else
+	{
+		Logger::WriteLog(m_id, "Inventory Addition too large; No items Added", "log");
+		std::cout << "Unable to add to inventory [full]" << std::endl;
+		return false;
+	}
 }
 
-void Player::Add(Food* item)
+bool Player::Add(Food* item)
 {
-	m_inventory.Add(item);
+	if (m_inventory.Add(item)) return true;
+	else
+	{
+		Logger::WriteLog(m_id, "Inventory Addition too large; No items Added", "log");
+		std::cout << "Unable to add to inventory [full]" << std::endl;
+		return false;
+	}
 }
 
-void Player::Add(Inventory& inv)
+bool Player::Add(Inventory& inv)
 {
-	m_inventory.Add(inv);
+	if (m_inventory.Add(inv)) return true;
+	else
+	{
+		Logger::WriteLog(m_id, "Inventory Addition too large; No items Added", "log");
+		std::cout << "Unable to add to inventory [full]" << std::endl;
+		return false;
+	}
 }
 
 void Player::Remove(Item* item)
@@ -44,6 +62,5 @@ void Player::ReleaseItems(Player* targetPlayer)
 
 int Player::Run()
 {
-
 	return 0;
 }

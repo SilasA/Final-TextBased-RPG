@@ -21,8 +21,10 @@ private:
 	std::string interaction();
 
 public:
+	// See GameState()
 	PlayState(Game* game, const std::string& id);
 
+	// See GameState::Run()
 	virtual int Run() override;
 };
 

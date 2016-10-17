@@ -52,11 +52,14 @@ void BattleState::interaction()
 	Logger::WriteLog(m_id, m_first->Name() + "'s Turn-------------------------", "log");
 
 	std::cout << "You have " << m_first->Health() << " hp." << std::endl;
-	std::cout << "You can attack or heal: ";
-	if (!std::getline(std::cin, line)) line = "ATTACK";
-	std::transform(line.begin(), line.end(), line.begin(), ::toupper);
+	while (true)
+	{
+		std::cout << "You can attack or heal: ";
+		if (std::getline(std::cin, line) && (line == "attack" || line == "heal")) break;
+		
+	}
 
-	if (line == "ATTACK")
+	if (line == "attack")
 	{
 		Logger::WriteLog(m_id, m_first->Name() + " is attacking~~~~~~~~~~~~", "log");
 		std::cout << "What weapon do you use?" << std::endl;
@@ -86,7 +89,7 @@ void BattleState::interaction()
 		std::cout << m_second->Name() << " now has " << m_second->Health() << "hp." << std::endl;
 		Logger::WriteLog(m_id, m_second->Name() + " health = " + std::to_string(m_second->Health()));
 	}
-	else if (line == "HEAL")
+	else if (line == "heal")
 	{
 		Logger::WriteLog(m_id, m_first->Name() + " is healing~~~~~~~~~~~~", "log");
 		std::cout << "What food do you use?" << std::endl;
@@ -136,7 +139,7 @@ int BattleState::Run()
 		// Always uses first (0th) item
 
 		// Heals
-		if (m_second->Health() <= 10 && !enemyFoods.empty())
+		if (m_second->Health() <= 10 && !enemyFoods.empty() && !enemyFoods[0].IsUsed())
 		{
 			std::cout << m_second->Name() << " used " << enemyFoods[0].Name() << "." << std::endl;
 			enemyFoods[0].Use(m_second->Health());
@@ -166,5 +169,6 @@ int BattleState::Run()
 		m_game->RemoveEnemy(m_second);
 		std::cin.get();
 	}
+	if (m_game->AreEnemiesDead()) return -3;
 	return -1;
 }

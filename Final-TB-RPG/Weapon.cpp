@@ -18,9 +18,8 @@ Weapon::Weapon(const std::string& name, int value, int size, int upperDamageRang
 void Weapon::Use(int& health)
 {
 	// Damage to deal
-	int damage = rand() % m_upperDamageRange + m_lowerDamageRange;
-	int r = (rand() % 100 + 1);
-	int damageC = r >= m_critProb * 100 ? damage : damage * CRIT_X;
+	int damage = (rand() % (m_upperDamageRange - m_lowerDamageRange) + m_lowerDamageRange);
+	int damageC = (rand() % 100 + 1) >= m_critProb * 100 ? damage : damage * CRIT_X;
 
 	health -= damageC;
 	std::cout << damageC << " damage was done!" << std::endl;
